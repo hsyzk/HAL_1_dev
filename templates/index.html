@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="ja">
+
+  <head>
+
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>ログイン</title>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/reset.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/common.css' %}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rampart+One&display=swap" rel="stylesheet">
+
+    <!-- JQuery本体 CDN -->
+    <!-- <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script> -->
+    <!-- <script type="text/javascript" src="js/common.js"></script> -->
+
+  </head>
+
+  <body>
+
+    <div id="wrap">
+
+      <header></header>
+
+      <nav></nav>
+
+      <main>
+        <div class="roguin_rogo"> 
+          <h1>Ongagram</h1>
+        </div>
+        <div class="rog_nyuryoku">
+          <form method="post" action="{% url 'myapp:Login' %}">
+            {% csrf_token %}
+            <input type="text" name="userid" placeholder="ユーザーID入力"><br>
+            <input type="password" name="password" placeholder="パスワード入力"><br>
+            <input type="submit" value="ログイン" class="buttonnoyatu"><br>
+          </form>
+          <a href="{% url 'myapp:register' %}">
+            <button class="buttonnoyatu">アカウントを作成</button>
+          </a>
+        </div>
+      </main>
+
+      <footer></footer>
+
+    </div>
+  </body>
+
+</html>

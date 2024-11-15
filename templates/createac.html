@@ -1,0 +1,72 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="ja">
+
+  <head>
+
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>アカウント作成</title>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/reset.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/common.css' %}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rampart+One&display=swap" rel="stylesheet">
+
+    <!-- JQuery本体 CDN -->
+    <!-- <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script> -->
+    <!-- <script type="text/javascript" src="js/common.js"></script> -->
+
+  </head>
+
+  <body>
+
+    <div id="wrap">
+
+      <header></header>
+
+      <nav></nav>
+
+      <main>
+        <div class="roguin_rogo"> 
+          <h1>Ongagram</h1>
+        </div>
+        <div class="rog_nyuryoku">
+
+          {% if AccountCreate %}
+            <div class="createsuccess">
+              <h1>登録完了</h1>
+            </div>
+
+          {% else %}
+
+            <form enctype="multipart/form-data" method="post">
+              {% csrf_token %}
+              {{ account_form.username }}
+              {{ account_form.password }}
+              <label>プロフィールアイコン</label>
+              {{ add_account_form.account_image }}
+              <button type="submit" class="buttonnoyatu">アカウント登録</button>
+            </form>
+
+          {% endif %}
+
+          <a href="{% url 'myapp:Login' %}">
+            <button class="buttonnoyatu">ログインページへ</button>
+          </a>
+
+        </div>
+      </main>
+
+      <footer></footer>
+
+    </div>
+    <script src="main.js"></script>
+  </body>
+
+</html>

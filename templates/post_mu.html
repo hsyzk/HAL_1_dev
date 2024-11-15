@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="ja">
+
+  <head>
+
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>名称未設定</title>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/reset.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/common.css' %}">
+
+    <!-- JQuery本体 CDN -->
+    <!-- <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script> -->
+    <!-- <script type="text/javascript" src="js/common.js"></script> -->
+
+  </head>
+
+  <body>
+
+    <div id="wrap">
+      <header></header>
+
+      <main>
+        {% block content %}
+        <form enctype="multipart/form-data" method="post">
+          <section class="post_top">
+            <a href="{% url 'myapp:home_mu' %}" id="post_le"><p>キャンセル</p></a>
+            <input type="submit" value="投稿">
+          </section>
+
+          {% csrf_token %}
+          <table class="form_table">
+            <tr>
+              <td class="hidaridesu">楽曲</td>
+              <td>：{{ form.post_audio }}</td>
+            </tr>
+            <tr>
+              <td class="hidaridesu">楽曲タイトル</td>
+              <td>：{{ form.title }}</td>
+            </tr>
+          </table>
+          <div class="form_div">
+            <p>本文</p>
+            {{ form.content }}
+          </div>
+        </form>
+        {% endblock content %}
+      </main>
+
+      <footer></footer>
+    </div>
+
+  </body>
+
+</html>

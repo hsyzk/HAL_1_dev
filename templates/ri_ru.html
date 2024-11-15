@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="ja">
+
+  <head>
+
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>名称未設定</title>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/reset.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/common.css' %}">
+
+    <!-- JQuery本体 CDN -->
+    <!-- <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script> -->
+    <!-- <script type="text/javascript" src="js/common.js"></script> -->
+
+  </head>
+
+  <body>
+
+    <div id="wrap">
+
+      <header></header>
+
+      <main>
+        <div class="ri-ru_main">
+          <figure>
+            <img src="{% static 'myapp/tate01.jpg' %}" alt="" class="ri-ru_img"></img>
+          </figure>
+          <div id="ri-ruyou">
+            <figure>
+               <img src="{% static 'myapp/tapro01.jpg' %}" alt="他ユーザー" class="tauser"></img>
+            </figure>
+            <p>景色が良かったので動画撮ったよ！</p>
+          </div>
+        </div>
+      </main>
+
+      <footer class="home_footer">
+        <a href="{% url 'myapp:ri_ru' %}" id="hidari">
+          <img src="{% static 'myapp/ri-ru.jpg' %}" alt="">
+          <p>リール</p>
+        </a>
+        <a href="{% url 'myapp:search' %}">
+          <img src="{% static 'myapp/kensaku.jpg' %}" alt="">
+          <p>検索</p>
+        </a>
+        <a href="{% url 'myapp:home' %}">
+          <img src="{% static 'myapp/ho-mu.jpg' %}" alt="">
+          <p>ホーム</p>
+        </a>
+        <a href="{% url 'myapp:home_mu' %}" id="migi">
+          <img src="{% static 'myapp/ho-mu_mu.jpg' %}" alt="">
+          <p>切り替え</p>
+        </a>
+      </footer>
+
+    </div>
+
+  </body>
+
+</html>

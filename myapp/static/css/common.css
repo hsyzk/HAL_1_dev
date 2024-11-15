@@ -1,0 +1,577 @@
+@charset "utf-8";
+
+/* 共通のスタイル */
+*{
+  margin: 0;
+  padding: 0;
+}
+body{
+  background-color: #fffacd;
+}
+
+div#wrap{
+  width: 650px;
+  height: 100vh;
+  margin: 0 auto;
+  background-color: #fff;
+}
+
+header{}
+.home_header{
+  position: fixed;
+  top: 0;
+  display: flex;
+  background-color: #ffffff;
+  width: 650px;
+  height: 120px;
+  border-bottom: 4px solid #66ccff;
+  z-index: 2;
+}
+.home_header h1{
+  width: 50%;
+  margin: 10px 0 0 0;
+  font-family: 'Rampart One', cursive;
+  font-size: 3rem;
+  text-align: center;
+  color: #66ccff;
+
+}
+.home_header a:hover{
+  opacity: 0.5;
+}
+.home_header #hoka{
+  display: flex;
+  width: 25%;
+}
+.home_header #hoka #hidaridayo{
+  margin: 25px 10px 0 10%;
+}
+.home_header #hoka #migidayo{
+  width: 70px;
+}
+.home_header #hoka #migidayo p{
+  font-size: 0.8rem;
+}
+.home_header #hoka a{
+  width: 60px;
+  margin: 25px 0 0 0;
+  text-align: center;
+  text-decoration: none;
+  color: #555;
+  font-weight: bold;
+}
+.home_header #hoka a img{
+  width: 40px;
+}
+.home_header #hoka a p{
+  font-size: 0.9rem;
+  margin: 2px 0 0 0;
+}
+.home_header #profilejpg{
+  width: 25%;
+  margin: 0 0 0 0;
+  text-align: left;
+}
+.home_header #profilejpg img{
+  margin: 5% 0 0 30px;
+  width: 90px;
+  height: 90px;
+  border: 2px solid #66ccff;
+  border-radius: 50px;
+}
+
+.profile_header{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.profile_header img{
+  width: 150px;
+  height: 150px;
+  margin: 30px 170px 0 30px;
+  border: 2px solid #66ccff;
+  border-radius: 75px;
+}
+.profile_header .proheader_ac{
+  width: 120px;
+  height: 60px;
+  margin: 30px 25px 0 0;
+  text-align: center;
+  border: 2px solid #66ccff;
+  border-radius: 30px;
+  text-decoration: none;
+}
+.profile_header .proheader_ac:hover{
+  opacity: 0.5;
+}
+.profile_header .proheader_ac p{
+  line-height: 60px;
+  font-weight: bold;
+  color: #66ccff;
+}
+
+main{
+  background-color: #fff;
+}
+.roguin_rogo{
+  padding: 35% 0 0 0;
+}
+.roguin_rogo h1{
+  font-family: 'Rampart One', cursive;
+  font-size: 5rem;
+  text-align: center;
+  color: #66ccff;
+}
+
+main h1{}
+main p{}
+main a{
+  margin: 10px 0 0 0;
+}
+
+.rog_btn{
+  width: 100%;
+  margin: 10px 0 0 0;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+}
+.rog_btn a{}
+.rog_btn a button{
+  width: 400px;
+  height: 32px;
+  margin: 3px 0 0 0;
+  font-size: 1rem;
+}
+.rog_nyuryoku{
+  margin: 45px 0 0 0;
+  width: 100%;
+}
+.rog_nyuryoku .createac_table{
+  width: 500px;
+}
+
+.home_main{
+  width: 650px;
+  margin: 120px 0 0 0;
+  background-color: #fff;
+}
+
+.home_maincon{
+  width: 650px;
+  padding: 1px 0 0 0;
+  background-color: #fff;
+}
+
+.ri-ru_main{}
+.ri-ru_main #ri-ruyou{
+  display: flex;
+  width: 100%;
+  margin: 10px 0 0 0;
+}
+.ri-ru_main #ri-ruyou p{
+  margin: 0 0 0 90px;
+  line-height: 60px
+}
+.ri-ru_main .tauser{
+  width: 60px;
+  height: 60px;
+  margin: 0 0 0 40px;
+  border: 1px solid #000;
+  border-radius: 50%;
+}
+.ri-ru_main .tauser:hover{
+  opacity: 0.5;
+}
+.ri-ru_main .ri-ru_img{}
+
+.post_top{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 120px;
+}
+.post_top a{
+  margin: 40px 30px 0 30px;
+  width: 170px;
+  height: 50px;
+  background-color: #fff;
+  text-align: center;
+  border: 2px solid #66ccff;
+  border-radius: 25px;
+  text-decoration: none;
+}
+.post_top a:hover{
+  opacity: 0.5;
+}
+.post_top input{
+  margin: 40px 30px 0 30px;
+  width: 170px;
+  height: 54px;
+  background-color: #fff;
+  text-align: center;
+  border: 2px solid #66ccff;
+  border-radius: 25px;
+  color: #66ccff;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+.post_top input:hover{
+  opacity: 0.5;
+}
+.post_top a p{
+  line-height: 50px;
+  font-weight: bold;
+  color: #66ccff;
+}
+
+.profile_main{
+  width: 650px;
+  background-color: #fff;
+}
+.profile_stats{
+  width: 100%;
+  height: 60px;
+  margin: 20px 0 30px 0;
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+}
+.profile_stats h1{
+  height: 40px;
+  margin: 0 0 0 40px;
+  padding: 0 20px;
+  font-size: 1.8rem;
+  border-bottom: 2px solid #000;
+}
+.profile_stats .hidarikun{
+  height: 30px;
+  margin: 10px 0 0 140px;
+  padding: 0 10px;
+  border-bottom: 1px solid #000;
+}
+.profile_stats .migikun{
+  height: 30px;
+  margin: 10px 50px 0 0;
+  padding: 0 10px;
+  border-bottom: 1px solid #000;
+}
+
+
+
+.message_tapro{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.message_tapro figure{}
+.message_tapro figure img{
+  width: 100px;
+  height: 100px;
+  margin: 0 10px;
+  border: 1px solid #000;
+  border-radius: 50px;
+}
+.message_div{
+  width: 600px;
+  height: 600px;
+  margin: 20px auto 0 auto;
+  border: 1px solid #000;
+}
+.message_div .message_ta{
+  display: flex;
+  width: 100%;
+  height: 70px;
+  margin: 30px 0 30px 10px;
+}
+.message_div .message_ta img{
+  width: 70px;
+  height: 70px;
+  border: 1px solid #000;
+  border-radius: 35px;
+}
+.message_div .message_ta p{
+  width: 200px;
+  height: 70px;
+  background-color: #eee;
+  border-radius: 20px;
+  text-align: center;
+  line-height: 70px;
+}
+.message_div .message_zi{
+  float: right;
+  width: 200px;
+  height: 70px;
+  margin: 20px 10px 20px 0;
+  background-color: #eee;
+  border-radius: 20px;
+  text-align: center;
+  line-height: 70px;
+}
+.message_ke{
+  text-align: center;
+}
+.message_ke input{
+  width: 400px;
+  font-size: 1.5rem;
+}
+
+.home_footer{
+  width: 650px;
+  height: 100px;
+  position: fixed;
+  bottom: 0;
+  background-color: #ffffff;
+  border-top: 4px solid #66ccff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 2;
+}
+.home_footer a{
+  width: 100%;
+  height: 100%;
+  border-left: 2px solid #66ccff;
+  border-right: 2px solid #66ccff;
+  text-align: center;
+  text-decoration: none;
+  color: #555;
+  font-weight: bold;
+}
+.home_footer a:hover{
+  opacity: 0.5;
+}
+.home_footer a img{
+  width: 50px;
+  margin: 13px 0 0 0;
+}
+.home_footer a p{
+  margin: 3px 0 0 0;
+}
+.home_footer #hidari{
+  border-left: none;
+}
+.home_footer #migi{
+  border-right: none;
+}
+
+
+
+/*アカウント作成ページ*/
+.createsuccess{
+  margin: 40px auto 40px auto;
+  text-align: center;
+}
+.createsuccess h1{
+  font-size: 1.3rem;
+}
+
+
+
+/*ログインページ*/
+.rog_nyuryoku{
+  width: 420px;
+  text-align: center;
+  margin: 55px auto 0 auto;
+}
+.rog_nyuryoku input{
+  width: 400px;
+  height: 45px;
+  margin: 0 0 35px 0;
+  border: 2px solid #66ccff;
+  border-radius: 50px;
+  font-size: 1.2rem;
+  text-align: center;
+}
+.rog_nyuryoku .buttonnoyatu{
+  width: 404px;
+  height: 40px;
+  margin: 0 0 35px 0;
+  border: 2px solid #66ccff;
+  border-radius: 50px;
+  background-color: #fff;
+  font-size: 1.2rem;
+  text-align: center;
+}
+.rog_nyuryoku .buttonnoyatu:hover{
+  opacity: 0.5;
+}
+.rog_nyuryoku label{
+  font-size: 1.2rem;
+  margin: 0 0 10px 0;
+}
+.rog_nyuryoku #id_account_image{
+  border: none;
+  border-radius: 0px;
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+
+/*投稿フォーム*/
+.form_table{
+  width: 90%;
+  margin: 100px auto 40px auto;
+}
+.form_table tr{
+  width: 100%;
+  height: 30px;
+  margin: 10px 0;
+}
+.form_table tr .hidaridesu{
+  width: 150px;
+  font-size: 1.3rem;
+  text-align: right;
+}
+.form_table tr td input{
+  width: 340px;
+  height: 30px;
+  font-size: 1.1rem;
+  border-radius: 5px;
+}
+
+.form_div{
+  width: 90%;
+  margin: 0 auto;
+  text-align: center;
+}
+.form_div p{
+  margin: 0 0 10px 0;
+  font-size: 1.4rem;
+}
+.form_div textarea{
+  width: 400px;
+  height: 200px;
+  font-size: 1.3rem;
+  border-radius: 5px;
+}
+
+.mylist_h2{
+  padding: 30px 0 0 0;
+  text-align: center;
+  font-size: 2rem;
+  color: #40e0d0;
+}
+
+/*投稿表示フォーム*/
+.mt-3{
+  width: 100%;
+  margin: 20px auto 0 auto;
+  padding: 0 0 130px 0;
+}
+.mt-3 .alert-success{
+  width: 90%;
+  margin: 20px auto 0 auto;
+  padding: 10px;
+  border: 1px solid #000;
+  border-radius: 5px;
+}
+.alert-success .toukougazou{
+  max-width: 100%;
+}
+.alert-success .middle_mylist{
+  display: flex;
+}
+.alert-success .middle_mylist div{
+  margin: 8px 0 0 auto;
+}
+.alert-success .middle_mylist a{
+  text-decoration: none;
+  text-align: center;
+  color: #000;
+}
+.alert-success .middle_mylist a:hover{
+  opacity: 0.5;
+}
+.alert-success .middle_mylist a img{
+  margin: 0 0 2px 18px;
+  width: 25px;
+}
+.alert-success .middle_mylist a p{
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+.alert-success .middle_mylist a .ositaato{
+  color: #40e0d0;
+}
+.alert-success h2{
+  margin: 10px 0;
+  font-size: 1.3rem;
+}
+.alert-success audio{
+  margin: 0 0 5px 0;
+}
+.profile_iinesimasu{
+  display: flex;
+  margin: 0 0 10px 0;
+  line-height: 50px;
+}
+.profile_iinesimasu .like-btn img{
+  width: 25px;
+  margin: 0 0 13px 0;
+}
+.profile_iinesimasu .saraninaka{
+  display: flex;
+}
+.profile_iinesimasu .saraninaka img{
+  width: 50px;
+  margin: 0 2px 0 0;
+  border: 1px solid #000;
+  border-radius: 50px;
+}
+.profile_iinesimasu a{
+  margin: 0 9px 0 auto;
+  text-decoration: none;
+}
+.profile_iinesimasu a:hover{
+  opacity: 0.5;
+}
+.profile_iinesimasu .iine_div{
+  margin: ;
+}
+
+
+
+/*検索機能*/
+.search_simasu{
+  padding: 60px 0 0 0;
+  text-align: center;
+}
+.search_simasu #id_keyword{
+  width: 300px;
+  height: 25px;
+  border: 2px solid #000;
+  font-size: 1.2rem;
+  text-align: center;
+}
+.search_simasu .kensakuinput{
+  width: 70px;
+  height: 40px;
+  background-color: #fff;
+  border: 2px solid #33aaff;
+  border-radius: 5px;
+  color: #33aaff;
+  font-size: 1rem;
+  font-weight: bold;
+}
+.search_simasu .kensakuinput:hover{
+  opacity: 0.5;
+}
+.search_simasu a{
+  padding: 3px;
+  border-radius: 5px;
+  border: 2px solid #33aaff;
+  color: #33aaff;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: bold;
+}
+.search_simasu a:hover{
+  opacity: 0.5;
+}
+.mylist_none{
+  margin: 100px 0 0 0;
+  text-align: center;
+  font-size: 1.7rem;
+  font-weight: bold;
+}

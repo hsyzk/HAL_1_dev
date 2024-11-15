@@ -1,0 +1,102 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="ja">
+
+  <head>
+
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>名称未設定</title>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/reset.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/common.css' %}">
+
+    <!-- JQuery本体 CDN -->
+    <!-- <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script> -->
+    <!-- <script type="text/javascript" src="js/common.js"></script> -->
+
+  </head>
+
+  <body>
+
+    <div id="wrap">
+
+      <header></header>
+
+      <main class="search_m">
+
+      {% block content %}<!-- searchFormがあれば -->
+        <form action='{% url "myapp:search_mu" %}' method="get"><!-- getメソッドでインデックス関数を呼び出す -->
+          <div class="search_simasu">
+            {{ searchForm }}<!-- views.pyから受け取ったsearchFormを表示 -->
+            <input type="submit" value="検索" class="kensakuinput">
+            <a href='{% url "myapp:search_mu" %}'>クリア</a><!-- postメソッドでインデックス関数を呼び出す -->
+          </div>
+        </form>
+
+          <div class="container mt-3">
+            {% for item in post_mu %}
+            <div class="alert alert-success" role="alert">
+              <h2 class="home_muh2">{{item.title}}</h2>
+              <div class="middle_mylist">
+                <audio controls src="{{ item.post_audio.url }}" align="center"></audio>
+                <div>
+                  {% if request.user in item.mylist.all %}
+                    <a href="{% url 'myapp:mylist-home' item.pk %}" class="mylist-btn add-color" tabindex="-1" role="button" aria-disabled="true">
+                      <img src="{% static 'myapp/mylist2.png' %}">
+                      <p class="ositaato">マイリスト<br>削除</p>
+                    </a>
+                  {% else %}
+                    <a href="{% url 'myapp:mylist-home' item.pk %}" class="mylist-btn" tabindex="-1" role="button" aria-disabled="true">
+                      <img src="{% static 'myapp/mylist.png' %}">
+                      <p>マイリスト<br>登録</p>
+                    </a>
+                  {% endif %}
+                </div>
+              </div>
+              <div class="profile_iinesimasu">
+                <div class="saraninaka">
+                  <img src="/media/{{ item.user.account.account_image }}">
+                  <p>{{item.user.username}}</p>
+                </div class="iine_div">
+                  {% if request.user in item.like.all %}
+                  <a href="{% url 'myapp:like-home_mu' item.pk %}" class="like-btn add-color" tabindex="-1" role="button" aria-disabled="true"><img src="{% static 'myapp/iine2.jpg' %}" alt="いいねしました"></a>{{item.like.count}}
+                  {% else %}
+                  <a href="{% url 'myapp:like-home_mu' item.pk %}" class="like-btn" tabindex="-1" role="button" aria-disabled="true"><img src="{% static 'myapp/iine.jpg' %}" alt="いいね"></a>{{item.like.count}}
+                  {% endif %}
+              </div>
+              <p>{{item.content}}</p>
+            </div>
+            {% endfor %}
+          </div>
+      {% endblock %}
+
+      </main> 
+
+      <footer class="home_footer">
+        <a href="{% url 'myapp:mylist' %}" id="hidari">
+          <img src="{% static 'myapp/mairisuto.jpg' %}" alt="">
+          <p>マイリスト</p>
+        </a>
+        <a href="{% url 'myapp:search_mu' %}">
+          <img src="{% static 'myapp/kensaku.jpg' %}" alt="">
+          <p>検索</p>
+        </a>
+        <a href="{% url 'myapp:home_mu' %}">
+          <img src="{% static 'myapp/ho-mu_mu.jpg' %}" alt="">
+          <p>ホーム</p>
+        </a>
+        <a href="{% url 'myapp:home' %}" id="migi">
+          <img src="{% static 'myapp/ho-mu.jpg' %}" alt="">
+          <p>切り替え</p>
+        </a>
+      </footer>
+
+    </div>
+
+  </body>
+
+</html>

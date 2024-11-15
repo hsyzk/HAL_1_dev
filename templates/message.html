@@ -1,0 +1,73 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="ja">
+
+  <head>
+
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>名称未設定</title>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/reset.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/common.css' %}">
+
+    <!-- JQuery本体 CDN -->
+    <!-- <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script> -->
+    <!-- <script type="text/javascript" src="js/common.js"></script> -->
+
+  </head>
+
+  <body>
+
+    <div id="wrap">
+      <header></header>
+
+      <main>
+        <section class="post_top">
+          <a href="{% url 'myapp:profile' %}" id="post_le"><p><戻る</p></a>
+        </section>
+        <div class="message_tapro">
+          <figure>
+            <img src="{% static 'myapp/tapro01.jpg' %}" alt="画像">
+          </figure>
+          <figure>
+            <img src="{% static 'myapp/tapro02.jpg' %}" alt="画像">
+          </figure>
+          <figure>
+            <img src="{% static 'myapp/tapro03.jpg' %}" alt="画像">
+          </figure>
+          <figure>
+            <img src="{% static 'myapp/tapro04.jpg' %}" alt="画像">
+          </figure>
+          <figure>
+            <img src="{% static 'myapp/tapro05.jpg' %}" alt="画像">
+          </figure>
+        </div>
+        <div class="message_div">
+          <div class="message_ta">
+            <img src="{% static 'myapp/tapro01.jpg' %}" alt="画像">
+            <p>1年終わったよ</p>
+          </div>
+          <p class="message_zi">おつかれ</p>
+          <div class="message_ta">
+            <img src="{% static 'myapp/tapro01.jpg' %}" alt="画像">
+            <p>おつかれ</p>
+          </div>
+          <p class="message_zi">作品制作大変だった～</p>
+          <div class="message_ta">
+            <img src="{% static 'myapp/tapro01.jpg' %}" alt="画像">
+            <p>わかる</p>
+          </div>
+        </div>
+        <p class="message_ke"><input type="text" placeholder="入力"></p>
+      </main>
+
+      <footer></footer>
+    </div>
+
+  </body>
+
+</html>

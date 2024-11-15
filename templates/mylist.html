@@ -1,0 +1,91 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="ja">
+
+  <head>
+
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>ホーム</title>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/reset.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/common.css' %}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rampart+One&display=swap" rel="stylesheet">
+
+    <!-- JQuery本体 CDN -->
+    <!-- <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script> -->
+    <!-- <script type="text/javascript" src="js/common.js"></script> -->
+
+  </head>
+
+  <body>
+
+    <div id="wrap">
+
+      <header></header>
+
+      <nav></nav>
+
+      <main>
+        {% block content %}
+          <h2 class="mylist_h2">マイリスト</h2>
+          {% if posts %}
+            <div class="container mt-3">
+              {% for item in posts %}
+                <div class="alert alert-success" role="alert">
+                  <h2 class="home_muh2">{{item.title}}</h2>
+                  <div class="middle_mylist">
+                    <audio controls src="{{ item.post_audio.url }}" align="center"></audio>
+                    <div>
+                      {% if request.user in item.mylist.all %}
+                        <a href="{% url 'myapp:mylist-home' item.pk %}" class="mylist-btn add-color" tabindex="-1" role="button" aria-disabled="true">
+                          <img src="{% static 'myapp/mylist2.png' %}">
+                          <p class="ositaato">マイリスト<br>削除</p>
+                        </a>
+                      {% else %}
+                        <a href="{% url 'myapp:mylist-home' item.pk %}" class="mylist-btn" tabindex="-1" role="button" aria-disabled="true">
+                          <img src="{% static 'myapp/mylist.png' %}">
+                          <p>マイリスト<br>登録</p>
+                        </a>
+                      {% endif %}
+                    </div>
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+          {% else %}
+            <p class="mylist_none">マイリストに登録してください</p>
+          {% endif %}
+        {% endblock %}
+      </main>
+
+      <footer class="home_footer">
+        <a href="{% url 'myapp:mylist' %}" id="hidari">
+          <img src="{% static 'myapp/mairisuto.jpg' %}" alt="">
+          <p>マイリスト</p>
+        </a>
+        <a href="{% url 'myapp:search_mu' %}">
+          <img src="{% static 'myapp/kensaku.jpg' %}" alt="">
+          <p>検索</p>
+        </a>
+        <a href="{% url 'myapp:home_mu' %}">
+          <img src="{% static 'myapp/ho-mu_mu.jpg' %}" alt="">
+          <p>ホーム</p>
+        </a>
+        <a href="{% url 'myapp:home' %}" id="migi">
+          <img src="{% static 'myapp/ho-mu.jpg' %}" alt="">
+          <p>切り替え</p>
+        </a>
+      </footer>
+
+    </div>
+    <script src="main.js"></script>
+  </body>
+
+</html>

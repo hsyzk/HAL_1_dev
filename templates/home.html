@@ -1,0 +1,96 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="ja">
+
+  <head>
+
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>ホーム</title>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/reset.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/common.css' %}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rampart+One&display=swap" rel="stylesheet">
+
+    <!-- JQuery本体 CDN -->
+    <!-- <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script> -->
+    <!-- <script type="text/javascript" src="js/common.js"></script> -->
+
+  </head>
+
+  <body>
+
+    <div id="wrap">
+
+      {% block content %}
+      <header class="home_header">
+        <a id="profilejpg" href="{% url 'myapp:profile' %}">
+          <img src="/media/{{ user.account.account_image }}" alt="プロフィール">
+        </a>
+        <h1>Ongagram</h1>
+        <div id="hoka">
+          <a id="hidaridayo" href="{% url 'myapp:post' %}">
+            <img src="{% static 'myapp/toukou.jpeg' %}" alt="">
+            <p>投稿</p>
+          </a>
+          <a id="migidayo" href="{% url 'myapp:Logout' %}">
+            <img src="{% static 'myapp/logout2.jpg' %}" alt="">
+            <p>ログアウト</p>
+          </a>
+        </div>
+      </header>
+
+      <main class="home_main">
+        <div class="container mt-3">
+          {% for item in object_list %}
+          <div class="alert alert-success" role="alert">
+            <img src="/media/{{ item.post_image }}" class="toukougazou">
+            <h2>{{item.title}}</h2>
+            <div class="profile_iinesimasu">
+              <div class="saraninaka">
+                <img src="/media/{{ item.user.account.account_image }}">
+                <p>{{item.user.username}}</p>
+              </div>
+              {% if request.user in item.like2.all %}
+              <a href="{% url 'myapp:like-home' item.pk %}" class="like-btn add-color" tabindex="-1" role="button" aria-disabled="true"><img src="{% static 'myapp/iine2.jpg' %}" alt="いいねしました"></a>{{item.like2.count}}
+              {% else %}
+              <a href="{% url 'myapp:like-home' item.pk %}" class="like-btn" tabindex="-1" role="button" aria-disabled="true"><img src="{% static 'myapp/iine.jpg' %}" alt="いいね"></a>{{item.like2.count}}
+              {% endif %}
+            </div>
+            <p>{{item.content}}</p>
+          </div>
+          {% endfor %}
+        </div>
+      {% endblock content %}
+      </main>
+
+      <footer class="home_footer">
+        <a href="{% url 'myapp:ri_ru' %}" id="hidari">
+          <img src="{% static 'myapp/ri-ru.jpg' %}" alt="">
+          <p>リール</p>
+        </a>
+        <a href="{% url 'myapp:search' %}">
+          <img src="{% static 'myapp/kensaku.jpg' %}" alt="">
+          <p>検索</p>
+        </a>
+        <a href="{% url 'myapp:home' %}">
+          <img src="{% static 'myapp/ho-mu.jpg' %}" alt="">
+          <p>ホーム</p>
+        </a>
+        <a href="{% url 'myapp:home_mu' %}" id="migi">
+          <img src="{% static 'myapp/ho-mu_mu.jpg' %}" alt="">
+          <p>切り替え</p>
+        </a>
+      </footer>
+
+    </div>
+    <script src="main.js"></script>
+  </body>
+
+</html>

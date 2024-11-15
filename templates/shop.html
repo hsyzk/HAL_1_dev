@@ -1,0 +1,109 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="ja">
+
+  <head>
+
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>名称未設定</title>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/reset.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/common.css' %}">
+
+    <!-- JQuery本体 CDN -->
+    <!-- <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script> -->
+    <!-- <script type="text/javascript" src="js/common.js"></script> -->
+
+  </head>
+
+  <body>
+
+    <div id="wrap">
+
+      <header></header>
+
+      <main class="shop_main">
+        <p><input type="text" placeholder="検索"></p>
+
+        <section class="shop_osusume">
+          <h2>
+            <span>人気商品</span>
+          </h2>
+          <dl>
+            <dt><img src="{% static 'myapp/hokatoukou.jpg' %}" alt="画像"></dt>
+              <dd>おすすめ商品1</dd>
+            <dt><img src="{% static 'myapp/hokatoukou.jpg' %}" alt="画像"></dt>
+              <dd>おすすめ商品2</dd>
+            <dt><img src="{% static 'myapp/hokatoukou.jpg' %}" alt="画像"></dt>
+              <dd>おすすめ商品3</dd>
+            <dt><img src="{% static 'myapp/hokatoukou.jpg' %}" alt="画像"></dt>
+              <dd>おすすめ商品4</dd>
+            <dt><img src="{% static 'myapp/hokatoukou.jpg' %}" alt="画像"></dt>
+              <dd>おすすめ商品5</dd>
+            <dt><img src="{% static 'myapp/hokatoukou.jpg' %}" alt="画像"></dt>
+              <dd>おすすめ商品6</dd>
+            <dt><img src="{% static 'myapp/hokatoukou.jpg' %}" alt="画像"></dt>
+              <dd>おすすめ商品7</dd>
+            <dt><img src="{% static 'myapp/hokatoukou.jpg' %}" alt="画像"></dt>
+              <dd>おすすめ商品8</dd>
+          </dl>
+        </section>
+
+        <section class="shop_osusume">
+          <h2>
+            <span>あなたにおすすめの商品</span>
+          </h2>
+          <dl>
+            <dt><img src="{% static 'myapp/hokatoukou.jpg' %}" alt="画像"></dt>
+              <dd>おすすめ商品1</dd>
+            <dt><img src="{% static 'myapp/hokatoukou.jpg' %}" alt="画像"></dt>
+              <dd>おすすめ商品2</dd>
+            <dt><img src="{% static 'myapp/hokatoukou.jpg' %}" alt="画像"></dt>
+              <dd>おすすめ商品3</dd>
+            <dt><img src="{% static 'myapp/hokatoukou.jpg' %}" alt="画像"></dt>
+              <dd>おすすめ商品4</dd>
+            <dt><img src="{% static 'myapp/hokatoukou.jpg' %}" alt="画像"></dt>
+              <dd>おすすめ商品5</dd>
+            <dt><img src="{% static 'myapp/hokatoukou.jpg' %}" alt="画像"></dt>
+              <dd>おすすめ商品6</dd>
+            <dt><img src="{% static 'myapp/hokatoukou.jpg' %}" alt="画像"></dt>
+              <dd>おすすめ商品7</dd>
+            <dt><img src="{% static 'myapp/hokatoukou.jpg' %}" alt="画像"></dt>
+              <dd>おすすめ商品8</dd>
+          </dl>
+        </section>
+
+      </main> 
+
+      <footer class="home_footer">
+        <a href="{% url 'myapp:ri_ru' %}" id="hidari">
+          <img src="{% static 'myapp/ri-ru.jpg' %}" alt="">
+          <p>リール</p>
+        </a>
+        <a href="{% url 'myapp:search' %}">
+          <img src="{% static 'myapp/kensaku.jpg' %}" alt="">
+          <p>検索</p>
+        </a>
+        <a href="{% url 'myapp:home' %}">
+          <img src="{% static 'myapp/ho-mu.jpg' %}" alt="">
+          <p>ホーム</p>
+        </a>
+        <a href="{% url 'myapp:home_mu' %}">
+          <img src="{% static 'myapp/ho-mu_mu.jpg' %}" alt="">
+          <p>切り替え</p>
+        </a>
+        <a href="{% url 'myapp:shop' %}" id="migi">
+          <img src="{% static 'myapp/shop.jpg' %}" alt="">
+          <p>ショップ</p>
+        </a>
+      </footer>
+
+    </div>
+
+  </body>
+
+</html>

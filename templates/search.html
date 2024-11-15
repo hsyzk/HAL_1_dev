@@ -1,0 +1,87 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="ja">
+
+  <head>
+
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>名称未設定</title>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/reset.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/common.css' %}">
+
+    <!-- JQuery本体 CDN -->
+    <!-- <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script> -->
+    <!-- <script type="text/javascript" src="js/common.js"></script> -->
+
+  </head>
+
+  <body>
+
+    <div id="wrap">
+
+      <header></header>
+
+      <main class="search_m">
+
+      {% block content %}<!-- searchFormがあれば -->
+        <form action='{% url "myapp:search" %}' method="get"><!-- getメソッドでインデックス関数を呼び出す -->
+          <div class="search_simasu">
+            {{ searchForm }}<!-- views.pyから受け取ったsearchFormを表示 -->
+            <input type="submit" value="検索" class="kensakuinput">
+            <a href='{% url "myapp:search" %}'>クリア</a><!-- postメソッドでインデックス関数を呼び出す -->
+          </div>
+        </form>
+
+        <div class="container mt-3">
+          {% for item in post %}
+          <div class="alert alert-success" role="alert">
+            <img src="/media/{{ item.post_image }}" class="toukougazou">
+            <h2>{{item.title}}</h2>
+            <div class="profile_iinesimasu">
+              <div class="saraninaka">
+                <img src="/media/{{ item.user.account.account_image }}">
+                <p>{{item.user.username}}</p>
+              </div>
+              {% if request.user in item.like2.all %}
+              <a href="{% url 'myapp:like-home' item.pk %}" class="like-btn add-color" tabindex="-1" role="button" aria-disabled="true"><img src="{% static 'myapp/iine2.jpg' %}" alt="いいねしました"></a>{{item.like2.count}}
+              {% else %}
+              <a href="{% url 'myapp:like-home' item.pk %}" class="like-btn" tabindex="-1" role="button" aria-disabled="true"><img src="{% static 'myapp/iine.jpg' %}" alt="いいね"></a>{{item.like2.count}}
+              {% endif %}
+            </div>
+            <p>{{item.content}}</p>
+          </div>
+          {% endfor %}
+        </div>
+      {% endblock %}
+
+      </main> 
+
+      <footer class="home_footer">
+        <a href="{% url 'myapp:ri_ru' %}" id="hidari">
+          <img src="{% static 'myapp/ri-ru.jpg' %}" alt="">
+          <p>リール</p>
+        </a>
+        <a href="{% url 'myapp:search' %}">
+          <img src="{% static 'myapp/kensaku.jpg' %}" alt="">
+          <p>検索</p>
+        </a>
+        <a href="{% url 'myapp:home' %}">
+          <img src="{% static 'myapp/ho-mu.jpg' %}" alt="">
+          <p>ホーム</p>
+        </a>
+        <a href="{% url 'myapp:home_mu' %}" id="migi">
+          <img src="{% static 'myapp/ho-mu_mu.jpg' %}" alt="">
+          <p>切り替え</p>
+        </a>
+      </footer>
+
+    </div>
+
+  </body>
+
+</html>
